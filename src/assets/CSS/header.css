@@ -1,0 +1,146 @@
+ /* 全局样式 */
+*{
+  padding: 0;
+  list-style: none;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+/* 路由被点击后(活跃状态)的样式 */
+a.router-link-exact-active{
+  color: #fa6419;
+}
+.head {
+  width: 100%;
+  box-shadow: 1px 2px 8px rgb(0 0 0 / 15%);  
+  z-index: 1000;
+}
+/* 顶部内层容器样式 */
+.head > ul {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 菜单项通用样式 */
+.menu{
+  width: max-content; /* 宽度自适应文字长度 */
+  padding: 0 4px;
+  font-size: 24px;
+  height: 92px;
+  line-height: 86px; /* 文字垂直居中 */
+  margin-top: 4px;
+}
+/* 菜单项触摸时鼠标样式 */
+.head > ul > li:hover{
+  cursor: pointer;
+}
+.logo{
+  font-size: 37px !important;
+  cursor: default !important;
+  margin-top: 25px !important;
+}
+/* 每个菜单选项单独的样式 */
+#menu-1{
+  margin-left: -24px;
+}
+
+/* 子菜单通用样式 */
+.head > ul > li > ul {
+  z-index: 1000;
+  position: absolute;
+  top: 84px;
+  display: none;
+}
+/* 触摸菜单时子菜单的样式,移动端借助响应式布局更改 */
+.head > ul li:hover ul {
+  display: block;
+  background: #fff;
+  box-shadow: 1px 3px 2px 2px rgb(0 0 0 / 15%);  
+}
+/* 每个子菜单单独的样式 */
+#submenu-1{
+  margin-left: -10px;
+}
+#submenu-2{
+  margin-left: -40px;
+}
+
+/* 子菜单项样式 */
+.menu-item{
+  height: 64px;
+  line-height: 64px;
+  padding: 1px 24px;
+}
+/* 子菜单项被点击时的样式 */
+.head > ul > li > ul> a > li:active {
+  background: #cccccc;
+  color: #001529;
+}
+/* 路由激活状态下顶部提示条样式 */
+.scarf{
+  position: absolute;
+  margin: -98px 0 0 -164px;
+  background: #fa6419;
+  padding: 4px 44px;
+}
+.scarf2{
+  margin: -98px 0 0 -39px;
+  padding: 4px 64px;
+}
+.scarf3{
+  margin: -98px 0 0 126px;
+  padding: 4px 75px;
+}
+.scarf4{
+  margin: -96px 0 0 314px;
+  padding: 4px 84px;
+}
+
+/* 移动端适配 */
+@media (max-width: 1084px) {
+  .menu{
+    height: 4rem;
+    line-height: 4rem;
+    position: absolute;
+    right: 0;
+    font-size: 1rem !important;
+    /* border: #000 1px solid; */
+    /* display: none; */
+  }
+  .logo{
+    margin-top: 2px !important;
+    font-size: 29px !important;
+  }
+  #menu-1{top: 74px;}
+  #menu-2{top: 174px;}
+  #menu-3{top: 274px;}
+  #menu-4{top: 374px;}
+
+  .head > ul > li > ul{
+    /* display: flex; */
+    width: max-content;
+    height: max-content;
+    position: absolute !important;
+    right: 120px !important;
+    top: -2px;
+  }
+  /* 加入点击样式 */
+  .sub{
+    display: block !important;
+    background-color: #fff;
+    box-shadow: 1px 3px 2px 2px rgb(0 0 0 / 15%);
+  }
+  /* 减小二级菜单宽度 */
+  .menu-item{
+    height: 2rem;
+    line-height: 2rem !important;
+    padding: 0 0.4rem;
+  }
+
+  /*消除触摸特效*/
+  .head>ul>li:hover>ul{display: none;}
+  .scarf,.scarf2,.scarf3,.scarf4{display: none;}
+}
