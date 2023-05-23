@@ -6,19 +6,14 @@
     <!-- <Right></Right> -->
     <!-- <MyContent></MyContent> -->
     <!--<MyFooter style="position: absolute;bottom: -240px;width: 100%"></MyFooter>-->
+    <!-- <router-view></router-view> -->
     <Common />
   </div>
-  <router-view />
+  
 </template>
 
 <script setup>
-import Header from './components/MyHeader.vue'
-import MyFooter from './components/MyFooter.vue'
-import MyContent from './components/MyContent.vue'
-import Right from './components/Myright.vue'
-import Common from "@/views/CommonLayout.vue";
-
-
+import Common from '@/views/CommonLayout.vue'
 </script>
 
 
@@ -30,11 +25,15 @@ import Common from "@/views/CommonLayout.vue";
 :root > body{
   height: 100%;
 }
+:root > body > #app > #common{
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100% !important;
 }
 </style>

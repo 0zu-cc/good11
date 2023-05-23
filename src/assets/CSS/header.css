@@ -13,46 +13,65 @@ a.router-link-exact-active{
 }
 .head {
   width: 100%;
-  box-shadow: 1px 2px 8px rgb(0 0 0 / 15%);  
-  z-index: 1000;
+  box-shadow: 1px 2px 8px rgb(0 0 0 / 15%);
+  position: sticky;top: 0; /* 固定头部栏 */
+  z-index: 100;
+  background-color: #fff;
 }
+
 /* 顶部内层容器样式 */
 .head > ul {
   max-width: 1080px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
 }
-
+/* 菜单容器样式 */
+.menu-set{
+  max-width: 1080px;
+  display: flex;
+}
 /* 菜单项通用样式 */
 .menu{
   width: max-content; /* 宽度自适应文字长度 */
   padding: 0 4px;
   font-size: 24px;
-  height: 92px;
-  line-height: 86px; /* 文字垂直居中 */
-  margin-top: 4px;
-}
-/* 菜单项触摸时鼠标样式 */
-.head > ul > li:hover{
-  cursor: pointer;
+  height: 92px;line-height: 86px; /* 文字垂直居中 */
+  margin-left: 18px;
+  letter-spacing: 1px;
 }
 .logo{
   font-size: 37px !important;
-  cursor: default !important;
-  margin-top: 25px !important;
+  cursor: default;
+  margin-top: 22px !important;
 }
 /* 每个菜单选项单独的样式 */
 #menu-1{
-  margin-left: -24px;
+  margin-left: 24px;
+}
+/* 移动端菜单控制器 */
+.check{
+  /* display: none; */
+  position: absolute;
+  right: -2px;
+  top: -3px;
+  width: 1px;
+  padding: 11px 10px;
+  border: #000 1px solid;
+}
+#menubox{
+  position: absolute;
+  top: 16px;
+  right: 37px;
+  padding: 10px 10px;
 }
 
 /* 子菜单通用样式 */
-.head > ul > li > ul {
+.head > ul > .menu-set > li > ul {
   z-index: 1000;
   position: absolute;
   top: 84px;
   display: none;
+  font-size: 17px;
 }
 /* 触摸菜单时子菜单的样式,移动端借助响应式布局更改 */
 .head > ul li:hover ul {
@@ -60,87 +79,105 @@ a.router-link-exact-active{
   background: #fff;
   box-shadow: 1px 3px 2px 2px rgb(0 0 0 / 15%);  
 }
-/* 每个子菜单单独的样式 */
-#submenu-1{
-  margin-left: -10px;
-}
-#submenu-2{
-  margin-left: -40px;
-}
-
 /* 子菜单项样式 */
 .menu-item{
-  height: 64px;
-  line-height: 64px;
-  padding: 1px 24px;
+  height: 54px;
+  line-height: 54px;
+  padding: 0 14px;
+  border-bottom: #000 1px solid;
+}
+/* 每个子菜单单独的样式 */
+#submenu-1{
+  margin-left: -19px;
+}
+#submenu-2{
+  margin-left: -85px;
 }
 /* 子菜单项被点击时的样式 */
-.head > ul > li > ul> a > li:active {
+.head > ul >.menu-set> li > ul> a > li:active {
   background: #cccccc;
-  color: #001529;
 }
+
 /* 路由激活状态下顶部提示条样式 */
 .scarf{
   position: absolute;
-  margin: -98px 0 0 -164px;
+  margin: -94px 0 0 -179px;
   background: #fa6419;
   padding: 4px 44px;
 }
 .scarf2{
-  margin: -98px 0 0 -39px;
-  padding: 4px 64px;
+  margin: -94px 0 0 -74px;
+  padding: 4px 69px;
 }
 .scarf3{
-  margin: -98px 0 0 126px;
+  margin: -94px 0 0 80px;
   padding: 4px 75px;
 }
 .scarf4{
-  margin: -96px 0 0 314px;
+  margin: -94px 0 0 251px;
   padding: 4px 84px;
 }
 
-/* 移动端适配 */
+
+/* 拉伸适配 */
 @media (max-width: 1084px) {
+  .head>ul{display: inline-block;}
   .menu{
     height: 4rem;
     line-height: 4rem;
-    position: absolute;
-    right: 0;
     font-size: 1rem !important;
-    /* border: #000 1px solid; */
-    /* display: none; */
   }
   .logo{
-    margin-top: 2px !important;
-    font-size: 29px !important;
+    margin-top:0 !important;
+    font-size: 2rem !important;
   }
-  #menu-1{top: 74px;}
-  #menu-2{top: 174px;}
-  #menu-3{top: 274px;}
-  #menu-4{top: 374px;}
+  
+  /* 减小二级菜单宽度 */
+  .menu-item{
+    height: 3rem;
+    line-height: 3rem !important;
+    padding: 0 0.4rem;
+  }
+  .scarf{margin: 40px 0 0 -450px !important;padding: 4px 41px;}
+  .scarf2{margin: 40px 0 0 -364px !important;padding: 4px 51px;}
+  .scarf3{margin: 40px 0 0 -250px !important;padding: 4px 56px;}
+  .scarf4{margin: 40px 0 0 -121px !important;padding: 4px 60px;}
+}
 
-  .head > ul > li > ul{
-    /* display: flex; */
-    width: max-content;
-    height: max-content;
-    position: absolute !important;
-    right: 120px !important;
-    top: -2px;
+/* 手机端适配 */
+@media (max-width: 920px) {
+  .head{height: 3.4rem;}
+  .logo{
+    font-size: 1.6rem !important;
+    position: absolute;
+    left: 1rem;
   }
+  .menu-set{
+    position: fixed;
+    width: 90% !important;
+    height: calc(90%);
+    top: 3.4rem;
+    right: 0;
+    background-color: #cccccc;
+    display: none;
+  }
+  .menu{position: absolute;font-size: 150% !important;}
+  #menu-1{top: calc(10%);}
+  #menu-2{top: calc(25%);}
+  #menu-3{top: calc(40%);left: 0;}
+  #menu-4{top: calc(55%);}
+
+  /* 子菜单 */
+  .head>ul>.menu-set>li>ul{
+    width: max-content;
+    box-shadow: none !important;
+    position: absolute;
+  }
+  #submenu-1{margin-left: 0;top: 4rem;}
+  #submenu-2{margin-left: 0;top: 3.4rem;}
   /* 加入点击样式 */
   .sub{
     display: block !important;
-    background-color: #fff;
-    box-shadow: 1px 3px 2px 2px rgb(0 0 0 / 15%);
   }
-  /* 减小二级菜单宽度 */
-  .menu-item{
-    height: 2rem;
-    line-height: 2rem !important;
-    padding: 0 0.4rem;
-  }
-
-  /*消除触摸特效*/
-  .head>ul>li:hover>ul{display: none;}
-  .scarf,.scarf2,.scarf3,.scarf4{display: none;}
+  .scarf{display: none;}
 }
